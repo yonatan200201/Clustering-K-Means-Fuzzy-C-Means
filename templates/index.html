@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TBC Clustering Application</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Besley:wght@900&family=IBM+Plex+Sans+Thai:wght@100&display=swap">
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+
+<!-- Font Awesome  -->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/font-awesome.min.css') }}">
+
+<!-- Web Font  -->
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+<!-- Custom CSS -->
+<link href="styles/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="js/jquery.min.js"></script>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="language" content="en-EN" />
+<meta name="author" content="Irfan Maulana" />
+<link rel="author" href="https://plus.google.com/u/0/+irfanmaulana-mazipan/posts" />
+<link rel="publisher" href="https://plus.google.com/u/0/+irfanmaulana-mazipan" />
+<meta name="keywords" content="bootstrap, bootstrap 4, bootstrap 4 template, bootstrap 4 admin, bootstrap 4 dashboard" />
+<meta name="description" content="Bootstrap 4 admin dashboard template by Irfan Maulana" />
+<meta property="og:title" content="Bootstrap 4 Admin Dashboard Template | Irfan Maulana" />
+<meta property="og:description" content="Bootstrap 4 admin dashboard template by Irfan Maulana" />
+<meta property="og:url" content="https://mazipan.github.io/bootstrap4-admin-dashboard-template/" />
+<meta property="og:site_name" content="Bootstrap 4 Admin Dashboard Template" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@maz_ipan" />
+<meta name="twitter:creator" content="@maz_ipan" />
+<meta name="twitter:title" content="Bootstrap 4 Admin Dashboard Template | Irfan Maulana" />
+<meta name="twitter:description" content="Bootstrap 4 admin dashboard template by Irfan Maulana" />
+<meta name="twitter:domain" content="https://mazipan.github.io/bootstrap4-admin-dashboard-template/" />
+<link rel="home" href="https://mazipan.github.io/bootstrap4-admin-dashboard-template/">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.shutterstock.com/image-vector/clustering-line-icon-creative-outline-260nw-1990550723.jpg">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="dist/main.css">
+<link href="styles/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="js/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-25065548-2"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-25065548-2');</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "ca-pub-5442972248172818",
+  enable_page_level_ads: true
+});
+</script>
+<style>
+  .menu-items-custom li a {
+	color: crimson;
+}
+
+  .menu-items-custom li a:hover {
+	background-color: crimson;
+	color: #fff;
+}
+.upload {
+  background-color: #fff;
+  color: black; 
+  border: 2px solid crimson;
+  border-radius: 8px;
+  padding: 10px 50px;
+}
+
+.upload:hover {
+  background-color: crimson;
+  color: black; 
+  color: #fff;
+}
+</style>
+</head>
+<body>
+  <header style="background-color: crimson;" class="navbar navbar-expand sticky-top  navbar-dark flex-column flex-md-row bd-navbar" style="background-color: crimson;"> 
+    <a class="navbar-brand mr-0 mr-md-2" href="#">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="#"><h1>COVID-19 Clustering Application</h1></a><br><br>
+    </a>
+  </header>
+
+<div class="container-fluid">
+  <div class="row">
+    <aside class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="menu-items-custom nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('index') }}">
+              <i class="fa fa-database"></i>
+              Upload Data
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('views') }}">
+              <i class="fa fa-database"></i>
+              Views Data
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('preprocesspage') }}">
+              <i class="fa fa-sun-o"></i>
+              Preprocessing Data
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('hasils') }}">
+              <i class="fa fa-pencil-square-o"></i> Hasil Akhir
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <main class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2"><i class="fa fa-database"></i> Upload Data</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+      <div id="section_header">
+        <div class="container">
+          <h2>FORM INPUT DATASET COVID-19<br></h2>
+          <h5>Note :<br>
+          Pastikan input dataset hanya dengan Format <b> .csv </b>
+          <br><br><br> Apabila ingin melihat contoh dataset. <br><br>
+          <b><a href="../static/dataset.zip" download>Download contoh dataset.csv</a></b></h5>
+          <br><br><br>
+          <div class="container">
+            <div class="card">
+              <div class="card-header"><b>Select CSV File</b></div>
+              <!-- Form untuk button Preprocessing-->
+              <div class="card-body">
+                <form method="POST" action="/other" enctype="multipart/form-data">
+                  <input type="file" name="file" multiple><br><br><br>
+                  <input class="button upload" type="submit" value="Upload" onclick="return confirm('Anda yakin ingin mengupload data ini?')">
+                </form>
+                <br><br>
+                <h4 style="text-align: left;">Daftar File yang Sudah Diunggah:</h4><br>
+                <ul style="text-align: left;">
+                  {% for file in uploaded_files %}
+                  <li style="text-align: left; margin-left: 20px;"><a style="text-align: left;" href="{{ url_for('static', filename='file/' ~ file) }}">{{ file }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+</body>
+</html>
